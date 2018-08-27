@@ -1,33 +1,38 @@
 'use strict';
 module.exports = {
     up: (queryInterface, Sequelize) => {
-        return queryInterface.createTable('Users', {
+        return queryInterface.createTable('users', {
             user_id: {
-                allowNull: false,
-                autoIncrement: true,
+                type: Sequelize.INTEGER,
                 primaryKey: true,
-                type: Sequelize.INTEGER
+                autoIncrement: true
             },
             username: {
-                allowNull: false,
                 type: Sequelize.STRING(20),
+                allowNull: false,
                 unique: true
             },
             password: {
+                type: Sequelize.STRING(100),
                 allowNull: false,
-                type: Sequelize.STRING(100)
             },
             first_name: {
                 allowNull: false,
-                type: Sequelize.STRING(20)
+                type: Sequelize.STRING(20),
+                defaultValue: ''
             },
             last_name: {
                 allowNull: false,
-                type: Sequelize.STRING(20)
+                type: Sequelize.STRING(20),
+                defaultValue: ''
+            },
+            profile_photo: {
+                allowNull: false,
+                type: Sequelize.STRING(100)
             },
             email: {
-                allowNull: false,
                 type: Sequelize.STRING(64),
+                allowNull: false,
                 unique: true
             },
             id_card: {
@@ -42,7 +47,7 @@ module.exports = {
                 allowNull: false,
                 type: Sequelize.STRING(100)
             },
-            country: {
+            city: {
                 allowNull: false,
                 type: Sequelize.STRING(50)
             },
@@ -50,20 +55,19 @@ module.exports = {
                 allowNull: false,
                 type: Sequelize.STRING(50)
             },
-            city: {
-                allowNull: false,
-                type: Sequelize.STRING(50)
-            },
             zip_code: {
                 allowNull: false,
                 type: Sequelize.STRING(6)
+            },
+            country: {
+                allowNull: false,
+                type: Sequelize.STRING(50)
             },
             status: {
                 allowNull: false,
                 type: Sequelize.STRING(32)
             },
             created_at: {
-                allowNull: false,
                 type: Sequelize.DATE,
                 defaultValue: Sequelize.NOW
             }
