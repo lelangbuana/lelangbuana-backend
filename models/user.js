@@ -43,6 +43,10 @@ module.exports = (sequelize, DataTypes) => {
           isAlphanumeric: true
         }
       },
+      profile_photo: {
+        allowNull: false,
+        type: Sequelize.STRING(100)
+      },
       email: {
         type: Sequelize.STRING(64),
         allowNull: false,
@@ -66,7 +70,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         type: Sequelize.STRING(100)
       },
-      country: {
+      city: {
         allowNull: false,
         type: Sequelize.STRING(50)
       },
@@ -74,13 +78,13 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         type: Sequelize.STRING(50)
       },
-      city: {
-        allowNull: false,
-        type: Sequelize.STRING(50)
-      },
       zip_code: {
         allowNull: false,
         type: Sequelize.STRING(6)
+      },
+      country: {
+        allowNull: false,
+        type: Sequelize.STRING(50)
       },
       status: {
         allowNull: false,
@@ -94,9 +98,20 @@ module.exports = (sequelize, DataTypes) => {
         type: Sequelize.DATE,
         defaultValue: Sequelize.NOW
       }
-    }, {});
+    }, 
+    {
+      timestamps: true,
+      createdAt : 'created_at'
+    });
+
   User.associate = function (models) {
     // associations can be defined here
+    user.hasMany(models.auction, {
+      foreignKey: 'user_id'
+    })
+    user.hasMany(models.bid, {
+      foreignKey: 'user_id'
+    })
   };
   return User;
 };
