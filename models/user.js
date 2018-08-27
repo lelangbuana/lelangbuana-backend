@@ -98,9 +98,10 @@ module.exports = (sequelize, DataTypes) => {
         type: Sequelize.DATE,
         defaultValue: Sequelize.NOW
       }
-    }, {
+    }, 
+    {
       timestamps: true,
-      createdAt: 'created_at'
+      createdAt : 'created_at'
     });
 
   User.associate = function (models) {
