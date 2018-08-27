@@ -1,44 +1,116 @@
+const models = require('../../models');
+const User = models.User;
+
 const controller = {
-    getAllUsers : (req, res, next) => {
-        res.send({
-            message: 'Get all users'
-        });
+    getAllUsers: (req, res, next) => {
+        User.findAll()
+            .then(users => {
+                res.send({
+                    users
+                })
+            })
+            .catch(error => {
+                res.status(400).send({
+                    error
+                })
+            })
     },
 
-    searchUsers : () => {
-        res.send({
-            message: 'Search users'
-        });
+    searchUsers: () => {
+        /* Search User */
     },
 
-    getOneUser : () => {
-        res.send({
-            message: 'Get one user'
-        });
+    getOneUser: () => {
+        const id = Number(req.params.id);
+        User.findById(id)
+            .then(user => {
+                if (user) {
+                    res.send({
+                        user
+                    })
+                } else {
+                    res.send({
+                        message: 'User not found'
+                    })
+                }
+            })
+            .catch(error => {
+                res.status(400).send({
+                    error
+                })
+            })
+
     },
 
-    createUser : () => {
-        res.send({
-            message: 'Save one user'
-        });
+    createUser: () => {
+        User.build({
+                name: req.body.name,
+                username: req.body.username,
+                password: req.body.password,
+                email: req.body.email,
+                createdAt: new Date(),
+                updatedAt: new Date()
+            })
+            .save()
+            .then(user => {
+                res.send({
+                    user
+                })
+            })
+            .catch(err => {
+                res.status(400).send({
+                    error: err.stack
+                })
+            })
     },
 
-    deleteAllUsers : () => {
-        res.send({
-            message: 'Remove all users'
-        });
+    deleteAllUsers: () => {
+        /* Delete All User */
     },
 
-    deleteOneUser : () => {
-        res.send({
-            message: 'Remove one user'
-        });
+    deleteOneUser: () => {
+        const id = Number(req.params.id)
+        User.destroy({
+                where: {
+                    id: id
+                }
+            })
+            .then(user => {
+                res.send({
+                    user
+                });
+            })
+            .catch(err => {
+                res.status(400).send({
+                    error: err.stack
+                })
+            })
     },
 
-    updateOneUser : () => {
-        res.send({
-            message: 'Update one user'
-        });
+    updateOneUser: () => {
+        const id = Number(req.params.id)
+        User.update({
+                name: req.body.name,
+                username: req.body.username,
+                password: req.body.password,
+                email: req.body.email,
+                createdAt: new Date(),
+                updatedAt: new Date()
+            }, {
+                where: {
+                    id: id
+                }
+            })
+            .then(employee => {
+                res.send({
+                    employee
+                })
+            })
+            .catch(err => {
+                res.status(400).send({
+                    error: err.stack
+                })
+            })
     }
 }
 
