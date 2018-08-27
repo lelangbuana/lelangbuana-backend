@@ -89,14 +89,6 @@ module.exports = (sequelize, DataTypes) => {
       status: {
         allowNull: false,
         type: Sequelize.STRING(32)
-      },
-      createdAt: {
-        type: Sequelize.DATE,
-        defaultValue: Sequelize.NOW
-      },
-      updatedAt: {
-        type: Sequelize.DATE,
-        defaultValue: Sequelize.NOW
       }
     }, 
     {
@@ -106,12 +98,12 @@ module.exports = (sequelize, DataTypes) => {
 
   User.associate = function (models) {
     // associations can be defined here
-    user.hasMany(models.auction, {
-      foreignKey: 'user_id'
-    })
-    user.hasMany(models.bid, {
-      foreignKey: 'user_id'
-    })
+    //user.hasMany(models.auction, {
+    //  foreignKey: 'user_id'
+    //})
+    //user.hasMany(models.bid, {
+    //  foreignKey: 'user_id'
+    //})
   };
   return User;
 };
