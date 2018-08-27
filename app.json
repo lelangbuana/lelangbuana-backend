@@ -1,0 +1,7 @@
+{
+    "name": "lelangbuana",
+    "description": "Auction Application",
+    "repository": "https://github.com/alifraher/lelangbuana-backend",
+    "keywords": ["Auction", "Bid"],
+    "image": "heroku/nodejs"
+}

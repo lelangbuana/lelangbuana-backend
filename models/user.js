@@ -5,17 +5,10 @@ const Sequelize = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define(
     'User', {
-      id: {
+      user_id: {
         type: DataTypes.INTEGER,
-        primaryKey: true
-      },
-      name: {
-        type: Sequelize.STRING(200),
-        defaultValue: '',
-        validate: {
-          len: [0, 200],
-          isAlphanumeric: true
-        }
+        primaryKey: true,
+        autoIncrement: true
       },
       username: {
         type: Sequelize.STRING(20),
@@ -29,11 +22,29 @@ module.exports = (sequelize, DataTypes) => {
         }
       },
       password: {
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING(100),
         allowNull: false,
       },
+      first_name: {
+        allowNull: false,
+        type: Sequelize.STRING(20),
+        defaultValue: '',
+        validate: {
+          len: [0, 200],
+          isAlphanumeric: true
+        }
+      },
+      last_name: {
+        allowNull: false,
+        type: Sequelize.STRING(20),
+        defaultValue: '',
+        validate: {
+          len: [0, 200],
+          isAlphanumeric: true
+        }
+      },
       email: {
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING(64),
         allowNull: false,
         unique: true,
         validate: {
@@ -42,6 +53,38 @@ module.exports = (sequelize, DataTypes) => {
           isLowercase: true,
           notEmpty: true
         }
+      },
+      id_card: {
+        allowNull: false,
+        type: Sequelize.STRING(100)
+      },
+      phone_number: {
+        allowNull: false,
+        type: Sequelize.STRING(20)
+      },
+      address: {
+        allowNull: false,
+        type: Sequelize.STRING(100)
+      },
+      country: {
+        allowNull: false,
+        type: Sequelize.STRING(50)
+      },
+      province: {
+        allowNull: false,
+        type: Sequelize.STRING(50)
+      },
+      city: {
+        allowNull: false,
+        type: Sequelize.STRING(50)
+      },
+      zip_code: {
+        allowNull: false,
+        type: Sequelize.STRING(6)
+      },
+      status: {
+        allowNull: false,
+        type: Sequelize.STRING(32)
       },
       createdAt: {
         type: Sequelize.DATE,
