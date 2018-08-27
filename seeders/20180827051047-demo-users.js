@@ -15,39 +15,41 @@ module.exports = {
 
     const demoUsers = [{
       username: 'admin',
-      password: 'admin',
+      password: 'adminpassword',
       first_name: 'admin',
       last_name: 'lelang',
+      profile_photo: 'photo',
       email: 'admin@gmail.com',
       id_card: 'Gambar KTP',
       phone_number: '0857',
       address: 'Nongsa',
-      country: 'Indonesia',
-      province: 'Kepulauan Riau',
       city: 'Batam',
+      province: 'Kepulauan Riau',
       zip_code: '123456',
+      country: 'Indonesia',
       status: 'Active',
       createdAt: new Date(),
       updatedAt: new Date()
     }, {
       username: 'user',
-      password: 'user',
-      first_name: 'user',
+      password: 'userpassword',
+      first_name: 'admin',
       last_name: 'lelang',
+      profile_photo: 'photo',
       email: 'user@gmail.com',
       id_card: 'Gambar KTP',
       phone_number: '0856',
-      address: 'Batu Aji',
-      country: 'Indonesia',
-      province: 'Kepulauan Riau',
+      address: 'Batam Centre',
       city: 'Batam',
+      province: 'Kepulauan Riau',
       zip_code: '654321',
-      status: 'Inactive',
+      country: 'Indonesia',
+      status: 'Active',
       createdAt: new Date(),
       updatedAt: new Date()
     }];
 
-    return queryInterface.bulkInsert('Users', demoUsers, {});
+    return queryInterface.bulkInsert('users', demoUsers, {});
   },
 
   down: (queryInterface, Sequelize) => {
