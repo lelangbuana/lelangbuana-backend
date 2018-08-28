@@ -149,7 +149,7 @@ const controller = {
                     })
                     .catch(error =>
                         res.status(409).send({
-                            error
+                            message: 'User is alredy registered'
                         })
                     )
             })
