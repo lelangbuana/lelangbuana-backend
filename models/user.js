@@ -98,9 +98,9 @@ module.exports = (sequelize, DataTypes) => {
 
   User.associate = function (models) {
     // associations can be defined here
-    //user.hasMany(models.auction, {
-    //  foreignKey: 'user_id'
-    //})
+    user.hasMany(models.auction, {
+     foreignKey: 'user_id'
+    })
     //user.hasMany(models.bid, {
     //  foreignKey: 'user_id'
     //})
