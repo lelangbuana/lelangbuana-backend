@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "node index.js"
+    "start": "node index"
   },
   "dependencies": {
     "cookie-parser": "~1.4.3",
@@ -17,7 +17,8 @@
     "jade": "~1.11.0",
     "morgan": "~1.9.0",
     "mysql2": "^1.6.1",
-    "sequelize": "^4.38.0"
+    "sequelize": "^4.38.0",
+    "sequelize-cli": "^4.1.1"
   },
   "description": "backend of Lelangbuana Project",
   "main": "index.js",
