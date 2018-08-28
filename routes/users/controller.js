@@ -169,17 +169,19 @@ const controller = {
 
         if (username && password) {
             User.findOne({
-                username
+                where: {
+                    username: username
+                }
             }).then(user => {
-                bcrypt.compare(password, user.hash).then(response => {
+                bcrypt.compare(password, user.password).then(response => {
                     if (response) {
                         const token = jwt.sign({
                                 iat: Math.floor(Date.now() / 1000) - 30,
                                 data: {
-                                    user_id: user_id // from mysql
+                                    user_id: user.user_id // from mysql
                                 }
                             },
-                            process.env.JWT_SECRET || 'secret', {
+                            process.env.JWT_SECRET || 'codingtogether', {
                                 expiresIn: '1d'
                             }
                         )
