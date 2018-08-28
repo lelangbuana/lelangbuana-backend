@@ -90,10 +90,10 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         type: Sequelize.STRING(32)
       }
-    }, 
-    {
+    }, {
       timestamps: true,
-      createdAt : 'created_at'
+      createdAt: 'created_at',
+      updatedAt: false
     });
 
   User.associate = function (models) {
