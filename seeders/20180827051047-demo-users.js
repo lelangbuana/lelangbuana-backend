@@ -28,8 +28,7 @@ module.exports = {
       zip_code: '123456',
       country: 'Indonesia',
       status: 'Active',
-      createdAt: new Date(),
-      updatedAt: new Date()
+      created_at: new Date()
     }, {
       username: 'user',
       password: 'userpassword',
@@ -45,8 +44,7 @@ module.exports = {
       zip_code: '654321',
       country: 'Indonesia',
       status: 'Active',
-      createdAt: new Date(),
-      updatedAt: new Date()
+      created_at: new Date()
     }];
 
     return queryInterface.bulkInsert('users', demoUsers, {});
@@ -60,6 +58,6 @@ module.exports = {
       Example:
       return queryInterface.bulkDelete('Person', null, {});
     */
-    return queryInterface.bulkDelete('Users', null, {});
+    return queryInterface.bulkDelete('users', null, {});
   }
 };
