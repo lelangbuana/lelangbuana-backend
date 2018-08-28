@@ -233,7 +233,7 @@ const controller = {
             })
             .catch(err => {
                 res.status(400).send({
-                    error: err.stack
+                    message: 'Update user failed'
                 })
             })
     },
@@ -253,7 +253,7 @@ const controller = {
             })
             .catch(err => {
                 res.status(400).send({
-                    error: err.stack
+                    message: 'Delete user failed'
                 })
             })
     },
