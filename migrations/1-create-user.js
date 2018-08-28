@@ -68,12 +68,13 @@ module.exports = {
                 type: Sequelize.STRING(32)
             },
             created_at: {
+                allowNull: false,
                 type: Sequelize.DATE,
                 defaultValue: Sequelize.NOW
             }
         });
     },
     down: (queryInterface, Sequelize) => {
-        return queryInterface.dropTable('Users');
+        return queryInterface.dropTable('users');
     }
 };
