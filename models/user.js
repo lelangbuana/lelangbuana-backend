@@ -1,17 +1,15 @@
 'use strict';
-
-const Sequelize = require('sequelize');
-
 module.exports = (sequelize, DataTypes) => {
-  const User = sequelize.define(
+  const user = sequelize.define(
     'user', {
       user_id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
-        autoIncrement: true
+        autoIncrement: true,
+        allowNull: false
       },
       username: {
-        type: Sequelize.STRING(20),
+        type: DataTypes.STRING(20),
         allowNull: false,
         unique: true,
         validate: {
@@ -22,12 +20,12 @@ module.exports = (sequelize, DataTypes) => {
         }
       },
       password: {
-        type: Sequelize.STRING(100),
+        type: DataTypes.STRING(100),
         allowNull: false,
       },
       first_name: {
         allowNull: false,
-        type: Sequelize.STRING(20),
+        type: DataTypes.STRING(20),
         defaultValue: '',
         validate: {
           len: [0, 200],
@@ -36,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       last_name: {
         allowNull: false,
-        type: Sequelize.STRING(20),
+        type: DataTypes.STRING(20),
         defaultValue: '',
         validate: {
           len: [0, 200],
@@ -45,10 +43,10 @@ module.exports = (sequelize, DataTypes) => {
       },
       profile_photo: {
         allowNull: false,
-        type: Sequelize.STRING(100)
+        type: DataTypes.STRING(100)
       },
       email: {
-        type: Sequelize.STRING(64),
+        type: DataTypes.STRING(64),
         allowNull: false,
         unique: true,
         validate: {
@@ -60,35 +58,35 @@ module.exports = (sequelize, DataTypes) => {
       },
       id_card: {
         allowNull: false,
-        type: Sequelize.STRING(100)
+        type: DataTypes.STRING(100)
       },
       phone_number: {
         allowNull: false,
-        type: Sequelize.STRING(20)
+        type: DataTypes.STRING(20)
       },
       address: {
         allowNull: false,
-        type: Sequelize.STRING(100)
+        type: DataTypes.STRING(100)
       },
       city: {
         allowNull: false,
-        type: Sequelize.STRING(50)
+        type: DataTypes.STRING(50)
       },
       province: {
         allowNull: false,
-        type: Sequelize.STRING(50)
+        type: DataTypes.STRING(50)
       },
       zip_code: {
         allowNull: false,
-        type: Sequelize.STRING(6)
+        type: DataTypes.STRING(6)
       },
       country: {
         allowNull: false,
-        type: Sequelize.STRING(50)
+        type: DataTypes.STRING(50)
       },
       status: {
         allowNull: false,
-        type: Sequelize.STRING(32)
+        type: DataTypes.STRING(32)
       }
     }, 
     {
@@ -96,7 +94,7 @@ module.exports = (sequelize, DataTypes) => {
       createdAt : 'created_at'
     });
 
-  User.associate = function (models) {
+  user.associate = function (models) {
     // associations can be defined here
     user.hasMany(models.auction, {
      foreignKey: 'user_id'
