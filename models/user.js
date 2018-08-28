@@ -42,7 +42,6 @@ module.exports = (sequelize, DataTypes) => {
         }
       },
       profile_photo: {
-        allowNull: false,
         type: DataTypes.STRING(100)
       },
       email: {
@@ -86,22 +85,23 @@ module.exports = (sequelize, DataTypes) => {
       },
       status: {
         allowNull: false,
+        defaultValue: 'active',
         type: DataTypes.STRING(32)
       }
-    }, 
-    {
+    }, {
       timestamps: true,
-      createdAt : 'created_at'
+      createdAt: 'created_at',
+      updatedAt: false
     });
 
   user.associate = function (models) {
     // associations can be defined here
     user.hasMany(models.auction, {
-     foreignKey: 'user_id'
+      foreignKey: 'user_id'
     })
     user.hasMany(models.bid, {
      foreignKey: 'user_id'
     })
   };
-  return User;
+  return user;
 };
