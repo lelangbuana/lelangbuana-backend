@@ -97,11 +97,11 @@ module.exports = (sequelize, DataTypes) => {
   user.associate = function (models) {
     // associations can be defined here
     user.hasMany(models.auction, {
-     foreignKey: 'user_id'
+      foreignKey: 'user_id'
     })
     //user.hasMany(models.bid, {
     //  foreignKey: 'user_id'
     //})
   };
-  return User;
+  return user;
 };
