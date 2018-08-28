@@ -22,7 +22,7 @@ module.exports = {
       },
       item_condition: {
         allowNull: false,
-        type: Sequelize.STRING(64)
+        type: Sequelize.STRING(32)
       },
       item_description: {
         allowNull: false,
@@ -58,7 +58,7 @@ module.exports = {
       },
       item_photo:{
         allowNull: false,
-        type: Sequelize.STRING(100)
+        type: Sequelize.STRING(200)
       },
       status:{
         allowNull: false,
