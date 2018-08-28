@@ -1,7 +1,7 @@
 const models = require('../../models');
 const Sequelize = require('sequelize');
 
-const User = models.User;
+const User = models.user;
 const Op = Sequelize.Op;
 
 const controller = {
