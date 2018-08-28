@@ -64,6 +64,9 @@ module.exports = (sequelize, DataTypes) => {
     auction.belongsTo(models.user, {
       foreignKey: 'user_id'
     })
+    auction.hasMany(models.bid, {
+      foreignKey: 'auction_id'
+    })
   };
   return auction;
 };
