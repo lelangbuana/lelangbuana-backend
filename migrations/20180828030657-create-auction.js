@@ -9,12 +9,12 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       user_id: {
-        type: Sequelize.INTEGER,
         allowNull: false,
+        type: Sequelize.INTEGER,
         references: {
-          model: 'user',
+          model: 'users',
           key: 'user_id'
-        },
+        }
       },
       title: {
         allowNull: false,
@@ -66,7 +66,8 @@ module.exports = {
       },
       created_at: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.NOW
       }
     });
   },
