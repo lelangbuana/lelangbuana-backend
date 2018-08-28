@@ -24,6 +24,11 @@ module.exports = {
           key: 'user_id'
         }
       },
+      bids_nominal: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        defaultValue: 0
+      },
       created_at: {
         allowNull: false,
         type: Sequelize.DATE,
