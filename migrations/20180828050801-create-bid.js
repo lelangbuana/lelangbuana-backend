@@ -2,22 +2,32 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('bids', {
-      id: {
+      bid_id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      auction_id: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'auctions',
+          key: 'auction_id'
+        }
+      },
+      user_id: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'users',
+          key: 'user_id'
+        }
+      },
       created_at: {
-        type: Sequelize.DATE
-      },
-      createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.NOW
       }
     });
   },
