@@ -13,6 +13,12 @@ module.exports = (sequelize, DataTypes) => {
   });
   bid.associate = function(models) {
     // associations can be defined here
+    bid.belongsTo(models.user, {
+      foreignKey: 'user_id'
+    })
+    bid.belongsTo(models.auction, {
+      foreignKey: 'auction_id'
+    })
   };
   return bid;
 };
