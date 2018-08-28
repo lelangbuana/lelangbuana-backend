@@ -42,7 +42,6 @@ module.exports = (sequelize, DataTypes) => {
         }
       },
       profile_photo: {
-        allowNull: false,
         type: DataTypes.STRING(100)
       },
       email: {
@@ -86,6 +85,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       status: {
         allowNull: false,
+        defaultValue: 'active',
         type: DataTypes.STRING(32)
       }
     }, {
