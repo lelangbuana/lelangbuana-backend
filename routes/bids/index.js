@@ -7,4 +7,6 @@ const controller = require('./controller.js')
 router.get('/', controller.get)
 router.post('/', controller.post)
 
+router.get('/:id', controller.getBidById)
+
 module.exports = router
