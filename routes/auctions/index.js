@@ -5,5 +5,6 @@ const controller = require('./controller.js')
 
 /* ROUTES/VIEW */
 router.get('/', controller.get)
+router.post('/', controller.post)
 
 module.exports = router
