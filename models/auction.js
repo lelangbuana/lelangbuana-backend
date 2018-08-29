@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     item_condition: {
       allowNull: false,
-      type: DataTypes.STRING(64)
+      type: DataTypes.STRING(32)
     },
     item_description: {
       allowNull: false,
@@ -48,7 +48,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     item_photo:{
       allowNull: false,
-      type: DataTypes.STRING(100)
+      type: DataTypes.STRING(200)
     },
     status:{
       allowNull: false,
@@ -57,7 +57,8 @@ module.exports = (sequelize, DataTypes) => {
   }, 
   {
     timestamps: true,
-    createdAt : 'created_at'
+    createdAt : 'created_at',
+    updatedAt: false
   });
   auction.associate = function(models) {
     // associations can be defined here
