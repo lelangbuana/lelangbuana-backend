@@ -9,4 +9,6 @@ router.post('/', controller.post)
 
 router.get('/:id', controller.getAuctionById)
 
+router.get('/user_id/:id', controller.getAuctionByUserId)
+
 module.exports = router
