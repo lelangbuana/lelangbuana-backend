@@ -5,11 +5,16 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
+    },
+    bids_nominal: {
+      allowNull: false,
+      type: DataTypes.INTEGER
     }
   }, 
   {
     timestamps: true,
-    createdAt : 'created_at'
+    createdAt : 'created_at',
+    updatedAt: false
   });
   bid.associate = function(models) {
     // associations can be defined here

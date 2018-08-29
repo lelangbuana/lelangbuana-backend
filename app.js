@@ -6,6 +6,7 @@ const cors = require('cors')
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const auctionsRouter = require('./routes/auctions');
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.use(cookieParser());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/auctions', auctionsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
