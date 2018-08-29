@@ -45,6 +45,75 @@ const controller = {
             .catch(error => {
                 res.status(400).send({error})
             })
+    },
+
+    getAuctionById: (req, res, next) => {
+        const auctionId = req.params.id
+        auction
+            .findAll({
+                where:{
+                    auction_id: auctionId
+                }
+            })
+            .then(auctionData => {
+                if (auctionData.length == 0){
+                    res.status(400).send({message: 'Sorry, your data is empty.'})
+                    console.log('Sorry, auction data is empty.')
+                }
+                else if (auctionData.length > 0){
+                    res.send({auctionData})
+                    console.log('Yeah! You have some auction data!')
+                }
+            })
+            .catch(error => {
+                res.status(400).send({error})
+            })
+    },
+
+    getAuctionByUserId: (req, res, next) => {
+        const userId = req.params.id
+        auction
+            .findAll({
+                where:{
+                    user_id: userId
+                }
+            })
+            .then(auctionData => {
+                if (auctionData.length == 0){
+                    res.status(400).send({message: 'Sorry, your data is empty.'})
+                    console.log('Sorry, auction data is empty.')
+                }
+                else if (auctionData.length > 0){
+                    res.send({auctionData})
+                    console.log('Yeah! You have some auction data!')
+                }
+            })
+            .catch(error => {
+                res.status(400).send({error})
+            })
+    },
+
+    getAuctionByStatus: (req, res, next) => {
+        const status = req.params.status
+        auction
+            .findAll({
+                where:{
+                    status: status
+                }
+            })
+            .then(auctionData => {
+                if (auctionData.length == 0){
+                    res.status(400).send({message: 'Sorry, your data is empty.'})
+                    console.log('Sorry, auction data is empty.')
+                }
+                else if (auctionData.length > 0){
+                    res.send({auctionData})
+                    console.log('Yeah! You have some auction data!')
+                }
+            })
+            .catch(error => {
+                res.status(400).send({error})
+            })
     }
 }
 
