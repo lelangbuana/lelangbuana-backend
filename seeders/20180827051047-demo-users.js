@@ -15,7 +15,7 @@ module.exports = {
 
     const demoUsers = [{
         username: 'guntur',
-        password: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1MzU0NDI1MzAsImRhdGEiOnsidXNlcl9pZCI6NH0sImV4cCI6MTUzNTUyODkzMH0.wnh8fskUgaPdZn5oxQV4uLKZG06MJbtXwgdQ4ddE4aM',
+        password: '$2b$04$lt3xi83pYqAlY9Iurvq25e.IA6lfx0hTly8fr87EiX6/.28zFZcuq',
         first_name: 'guntur',
         last_name: 'kurniawan',
         profile_photo: 'photo',
@@ -31,7 +31,7 @@ module.exports = {
         created_at: new Date()
       }, {
         username: 'fadilla',
-        password: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1MzU0NDI1MzAsImRhdGEiOnsidXNlcl9pZCI6NH0sImV4cCI6MTUzNTUyODkzMH0.wnh8fskUgaPdZn5oxQV4uLKZG06MJbtXwgdQ4ddE4aM',
+        password: '$2b$04$lt3xi83pYqAlY9Iurvq25e.IA6lfx0hTly8fr87EiX6/.28zFZcuq',
         first_name: 'fadilla',
         last_name: 'bilqis',
         profile_photo: 'photo',
@@ -47,7 +47,7 @@ module.exports = {
         created_at: new Date()
       }, {
         username: 'maya',
-        password: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1MzU0NDI1MzAsImRhdGEiOnsidXNlcl9pZCI6NH0sImV4cCI6MTUzNTUyODkzMH0.wnh8fskUgaPdZn5oxQV4uLKZG06MJbtXwgdQ4ddE4aM',
+        password: '$2b$04$lt3xi83pYqAlY9Iurvq25e.IA6lfx0hTly8fr87EiX6/.28zFZcuq',
         first_name: 'maya',
         last_name: 'sophie',
         profile_photo: 'photo',
@@ -64,7 +64,7 @@ module.exports = {
       },
       {
         username: 'alif',
-        password: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1MzU0NDI1MzAsImRhdGEiOnsidXNlcl9pZCI6NH0sImV4cCI6MTUzNTUyODkzMH0.wnh8fskUgaPdZn5oxQV4uLKZG06MJbtXwgdQ4ddE4aM',
+        password: '$2b$04$lt3xi83pYqAlY9Iurvq25e.IA6lfx0hTly8fr87EiX6/.28zFZcuq',
         first_name: 'alif',
         last_name: 'raher',
         profile_photo: 'photo',
