@@ -2,6 +2,23 @@ const models = require('../../models')
 const bid = models.bid
 
 const controller = {
+    get: (req, res, next) => {
+        bid
+            .findAll()
+            .then(bids => {
+                if (bids.length == 0){
+                    res.status(400).send({message: 'Sorry, bid data is empty'})
+                    console.log('Sorry, bid data is empty')
+                }
+                else if (bids.length > 0) {
+                    res.send({bids})
+                    console.log('Yeah! You have some auction data!')
+                }
+            })
+            .catch(error => {
+                res.status(400).send({error})
+            })
+    },
     post: (req, res, next) => {
         bid
             .create({
