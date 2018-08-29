@@ -13,7 +13,8 @@ module.exports = (sequelize, DataTypes) => {
   }, 
   {
     timestamps: true,
-    createdAt : 'created_at'
+    createdAt : 'created_at',
+    updatedAt: false
   });
   bid.associate = function(models) {
     // associations can be defined here
