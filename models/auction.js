@@ -57,7 +57,8 @@ module.exports = (sequelize, DataTypes) => {
   }, 
   {
     timestamps: true,
-    createdAt : 'created_at'
+    createdAt : 'created_at',
+    updatedAt: false
   });
   auction.associate = function(models) {
     // associations can be defined here
