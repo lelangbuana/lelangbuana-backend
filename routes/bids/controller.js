@@ -12,7 +12,7 @@ const controller = {
                 }
                 else if (bids.length > 0) {
                     res.send({bids})
-                    console.log('Yeah! You have some auction data!')
+                    console.log('Yeah! You have some bid data!')
                 }
             })
             .catch(error => {
@@ -48,11 +48,11 @@ const controller = {
             .then(bidData => {
                 if (bidData.length == 0){
                     res.status(400).send({message: 'Sorry, your data is empty.'})
-                    console.log('Sorry, auction data is empty.')
+                    console.log('Sorry, bid data is empty.')
                 }
                 else if (bidData.length > 0){
                     res.send({bidData})
-                    console.log('Yeah! You have some auction data!')
+                    console.log('Yeah! You have some bid data!')
                 }
             })
             .catch(error => {
@@ -71,11 +71,34 @@ const controller = {
             .then(bidData => {
                 if (bidData.length == 0){
                     res.status(400).send({message: 'Sorry, your data is empty.'})
-                    console.log('Sorry, auction data is empty.')
+                    console.log('Sorry, bid data is empty.')
                 }
                 else if (bidData.length > 0){
                     res.send({bidData})
-                    console.log('Yeah! You have some auction data!')
+                    console.log('Yeah! You have some bid data!')
+                }
+            })
+            .catch(error => {
+                res.status(400).send({error})
+            })
+    },
+
+    getBidByAuctionId: (req, res, next) => {
+        const auctionId = req.params.id
+        bid
+            .findAll({
+                where:{
+                    auction_id: auctionId
+                }
+            })
+            .then(bidData => {
+                if (bidData.length == 0){
+                    res.status(400).send({message: 'Sorry, your data is empty.'})
+                    console.log('Sorry, bid data is empty.')
+                }
+                else if (bidData.length > 0){
+                    res.send({bidData})
+                    console.log('Yeah! You have some bid data!')
                 }
             })
             .catch(error => {
