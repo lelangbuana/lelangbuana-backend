@@ -11,7 +11,7 @@ const controller = {
                     console.log('Sorry, auction data is empty.')
                 }
                 else if (auctions.length > 0){
-                    res.send({auctions})
+                    res.send(auctions)
                     console.log('Yeah! You have some auction data!')
                 }
             })
@@ -21,40 +21,55 @@ const controller = {
     },
 
     post: (req, res, next) => {
+        const {
+            user_id,
+            title,
+            item_condition,
+            item_description,
+            quantity,
+            start_bid,
+            max_bid,
+            min_bid,
+            bids_multiply,
+            start_date,
+            end_date,
+            item_photo,
+            status
+        } = req.body;
         if (
-            req.body.user_id &&
-            req.body.title &&
-            req.body.item_condition &&
-            req.body.item_description &&
-            req.body.quantity &&
-            req.body.start_bid &&
-            req.body.max_bid &&
-            req.body.min_bid &&
-            req.body.bids_multiply &&
-            req.body.start_date &&
-            req.body.end_date &&
-            req.body.item_photo &&
-            req.body.status
+            user_id &&
+            title &&
+            item_condition &&
+            item_description &&
+            quantity &&
+            start_bid &&
+            max_bid &&
+            min_bid &&
+            bids_multiply &&
+            start_date &&
+            end_date &&
+            item_photo &&
+            status
         ){
             auction
                 .create({
-                    user_id: req.body.user_id,
-                    title: req.body.title,
-                    item_condition: req.body.item_condition,
-                    item_description: req.body.item_description,
-                    quantity: req.body.quantity,
-                    start_bid: req.body.start_bid,
-                    max_bid: req.body.max_bid,
-                    min_bid: req.body.min_bid,
-                    bids_multiply: req.body.bids_multiply,
-                    start_date: req.body.start_date,
-                    end_date: req.body.end_date,
-                    item_photo: req.body.item_photo,
-                    status: req.body.status,
+                    user_id,
+                    title,
+                    item_condition,
+                    item_description,
+                    quantity,
+                    start_bid,
+                    max_bid,
+                    min_bid,
+                    bids_multiply,
+                    start_date,
+                    end_date,
+                    item_photo,
+                    status,
                     created_at: new Date()
                 })
                 .then(newAuction => {
-                    res.send({newAuction})
+                    res.send(newAuction)
                     console.log('You have sent a new auction data!')
                 })
                 .catch(error => {
@@ -67,21 +82,21 @@ const controller = {
         }
     },
 
-    getAuctionById: (req, res, next) => {
-        const auctionId = req.params.id
+    getById: (req, res, next) => {
+        const { auction_id } = req.params
         auction
-            .findAll({
+            .findOne({
                 where:{
-                    auction_id: auctionId
+                    auction_id
                 }
             })
             .then(auctionData => {
-                if (auctionData.length == 0){
+                if (!auctionData){
                     res.status(400).send({message: 'Sorry, your data is empty.'})
                     console.log('Sorry, auction data is empty.')
                 }
-                else if (auctionData.length > 0){
-                    res.send({auctionData})
+                else{
+                    res.send(auctionData)
                     console.log('Yeah! You have some auction data!')
                 }
             })
@@ -90,12 +105,12 @@ const controller = {
             })
     },
 
-    getAuctionByUserId: (req, res, next) => {
-        const userId = req.params.id
+    getByUserId: (req, res, next) => {
+        const { user_id } = req.params
         auction
             .findAll({
                 where:{
-                    user_id: userId
+                    user_id
                 }
             })
             .then(auctionData => {
@@ -103,8 +118,8 @@ const controller = {
                     res.status(400).send({message: 'Sorry, your data is empty.'})
                     console.log('Sorry, auction data is empty.')
                 }
-                else if (auctionData.length > 0){
-                    res.send({auctionData})
+                else{
+                    res.send(auctionData)
                     console.log('Yeah! You have some auction data!')
                 }
             })
@@ -113,12 +128,12 @@ const controller = {
             })
     },
 
-    getAuctionByStatus: (req, res, next) => {
-        const status = req.params.status
+    getByStatus: (req, res, next) => {
+        const { status } = req.params
         auction
             .findAll({
                 where:{
-                    status: status
+                    status
                 }
             })
             .then(auctionData => {
@@ -126,8 +141,8 @@ const controller = {
                     res.status(400).send({message: 'Sorry, your data is empty.'})
                     console.log('Sorry, auction data is empty.')
                 }
-                else if (auctionData.length > 0){
-                    res.send({auctionData})
+                else{
+                    res.send(auctionData)
                     console.log('Yeah! You have some auction data!')
                 }
             })
