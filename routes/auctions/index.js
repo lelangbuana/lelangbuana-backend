@@ -7,10 +7,10 @@ const controller = require('./controller.js')
 router.get('/', controller.get)
 router.post('/', controller.post)
 
-router.get('/:id', controller.getAuctionById)
+router.get('/:auction_id', controller.getById)
 
-router.get('/user_id/:id', controller.getAuctionByUserId)
+router.get('/user_id/:user_id', controller.getByUserId)
 
-router.get('/status/:status', controller.getAuctionByStatus)
+router.get('/status/:status', controller.getByStatus)
 
 module.exports = router
