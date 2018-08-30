@@ -2,24 +2,32 @@ const models = require('../../models')
 const bid = models.bid
 
 const controller = {
+    
+    //-------------------------------------------------------------------------------------------
     get: (req, res, next) => {
         bid
             .findAll()
             .then(bids => {
-                if (bids.length == 0){
-                    res.status(400).send({message: 'Sorry, bid data is empty'})
+                if (bids.length == 0) {
+                    res.status(400).send({
+                        message: 'Sorry, bid data is empty'
+                    })
                     console.log('Sorry, bid data is empty')
-                }
-                else if (bids.length > 0) {
-                    res.send({bids})
+                } else if (bids.length > 0) {
+                    res.send({
+                        bids
+                    })
                     console.log('Yeah! You have some bid data!')
                 }
             })
             .catch(error => {
-                res.status(400).send({error})
+                res.status(400).send({
+                    error
+                })
             })
     },
 
+    //-------------------------------------------------------------------------------------------
     post: (req, res, next) => {
         bid
             .create({
@@ -29,82 +37,149 @@ const controller = {
                 created_at: new Date()
             })
             .then(newBid => {
-                res.send({newBid})
+                res.send({
+                    newBid
+                })
                 console.log('You have sent a new bid data!')
             })
             .catch(error => {
-                res.status(400).send({error})
+                res.status(400).send({
+                    error
+                })
             })
     },
 
+    //-------------------------------------------------------------------------------------------
     getBidById: (req, res, next) => {
         const bidId = req.params.id
         bid
             .findAll({
-                where:{
+                where: {
                     bid_id: bidId
                 }
             })
             .then(bidData => {
-                if (bidData.length == 0){
-                    res.status(400).send({message: 'Sorry, your data is empty.'})
+                if (bidData.length == 0) {
+                    res.status(400).send({
+                        message: 'Sorry, your data is empty.'
+                    })
                     console.log('Sorry, bid data is empty.')
-                }
-                else if (bidData.length > 0){
-                    res.send({bidData})
+                } else if (bidData.length > 0) {
+                    res.send({
+                        bidData
+                    })
                     console.log('Yeah! You have some bid data!')
                 }
             })
             .catch(error => {
-                res.status(400).send({error})
+                res.status(400).send({
+                    error
+                })
             })
     },
 
+    //-------------------------------------------------------------------------------------------
     getBidByUserId: (req, res, next) => {
         const userId = req.params.id
         bid
             .findAll({
-                where:{
+                where: {
                     user_id: userId
                 }
             })
             .then(bidData => {
-                if (bidData.length == 0){
-                    res.status(400).send({message: 'Sorry, your data is empty.'})
+                if (bidData.length == 0) {
+                    res.status(400).send({
+                        message: 'Sorry, your data is empty.'
+                    })
                     console.log('Sorry, bid data is empty.')
-                }
-                else if (bidData.length > 0){
-                    res.send({bidData})
+                } else if (bidData.length > 0) {
+                    res.send({
+                        bidData
+                    })
                     console.log('Yeah! You have some bid data!')
                 }
             })
             .catch(error => {
-                res.status(400).send({error})
+                res.status(400).send({
+                    error
+                })
             })
     },
 
+    //-------------------------------------------------------------------------------------------
     getBidByAuctionId: (req, res, next) => {
         const auctionId = req.params.id
         bid
             .findAll({
-                where:{
+                where: {
                     auction_id: auctionId
                 }
             })
             .then(bidData => {
-                if (bidData.length == 0){
-                    res.status(400).send({message: 'Sorry, your data is empty.'})
+                if (bidData.length == 0) {
+                    res.status(400).send({
+                        message: 'Sorry, your data is empty.'
+                    })
                     console.log('Sorry, bid data is empty.')
-                }
-                else if (bidData.length > 0){
-                    res.send({bidData})
+                } else if (bidData.length > 0) {
+                    res.send({
+                        bidData
+                    })
                     console.log('Yeah! You have some bid data!')
                 }
             })
             .catch(error => {
-                res.status(400).send({error})
+                res.status(400).send({
+                    error
+                })
             })
     },
+
+    //-------------------------------------------------------------------------------------------
+    updateBid: (req, res, next) => {
+        const bidId = Number(req.params.id)
+        bid.update({
+                auction_id: req.body.auction_id,
+                user_id: req.body.user_id,
+                bids_nominal: req.body.bids_nominal,
+                created_at: new Date()
+            }, {
+                where: {
+                    bid_id: bidId
+                }
+            })
+            .then(bid => {
+                res.send({
+                    bid
+                })
+            })
+            .catch(err => {
+                res.status(400).send({
+                    message: 'Update bid failed'
+                })
+            })
+    },
+
+    //-------------------------------------------------------------------------------------------
+    deleteBid: (req, res, next) => {
+        const bidId = Number(req.params.id)
+        bid.destroy({
+                where: {
+                    bid_id: bidId
+                }
+            })
+            .then(bid => {
+                res.send({
+                    bid
+                });
+            })
+            .catch(err => {
+                res.status(400).send({
+                    message: 'Delete bid failed'
+                })
+            })
+    }
 }
 
 module.exports = controller
