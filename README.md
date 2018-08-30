@@ -30,6 +30,8 @@ Back End repository for Lelangbuana project
 | `/auctions/user_id/:id`     | GET    | Get auction data by user id |
 | `/auctions/status/:status`  | GET    | Get auction data by status  |
 | `/auctions/`                | POST   | Insert new auction data     |
+| `/auctions/:id`             | PUT    | Update one auction data     |
+| `/auctions/:id`             | DELETE | Delete one auction data     |
 
 3. Endpoints of 'bids' table
 
@@ -38,5 +40,7 @@ Back End repository for Lelangbuana project
 | `/bids`                 | GET    | Get all of bid data         |
 | `/bids/:id`             | GET    | Get bid data by id          |
 | `/bids/user_id/:id`     | GET    | Get bid data by user id     |
-| `/bids/auction_id/:id`  | GET    | Get auction data by status  |
-| `/bids/`                | POST   | Insert new auction data     |
+| `/bids/auction_id/:id`  | GET    | Get bid data by status      |
+| `/bids/`                | POST   | Insert new bid data         |
+| `/bids/:id`             | PUT    | Update one bid data         |
+| `/bids/:id`             | DELETE | Delete one bid data         |
