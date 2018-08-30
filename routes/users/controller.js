@@ -3,14 +3,14 @@ const Sequelize = require('sequelize')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
-const User = models.user
+const user = models.user
 const Op = Sequelize.Op
 
 const controller = {
 
     //-------------------------------------------------------------------------------------------
     get: async (req, res, next) => {
-        User.findAll()
+        user.findAll()
             .then(users => {
                 res.send({
                     users
@@ -24,9 +24,9 @@ const controller = {
     },
 
     //-------------------------------------------------------------------------------------------
-    getUserById: async (req, res, next) => {
-        const id = Number(req.params.id)
-        User.findById(id)
+    getById: async (req, res, next) => {
+        const { user_id } = req.params
+        user.findById(user_id)
             .then(user => {
                 if (user) {
                     res.send({
@@ -47,12 +47,11 @@ const controller = {
     },
 
     //-------------------------------------------------------------------------------------------
-    getUserByUsername: async (req, res, next) => {
-        const username = req.params.username
-        console.log(username)
-        User.findOne({
+    getByUsername: async (req, res, next) => {
+        const { username } = req.params
+        user.findOne({
             where: {
-                username: username
+                username
             }
         })
             .then(user => {
@@ -75,10 +74,10 @@ const controller = {
     },
 
     //-------------------------------------------------------------------------------------------
-    searchUserByUsername: async (req, res, next) => {
+    searchByUsername: async (req, res, next) => {
         const searchedUser = String(req.query.q).toLowerCase()
         if (searchedUser) {
-            User.findAll({
+            user.findAll({
                 where: {
                     username: {
                         [Op.like]: `%${searchedUser}%`
@@ -138,7 +137,7 @@ const controller = {
                 }
             })
             .then(newUser => {
-                User.build(newUser)
+                user.build(newUser)
                     .save()
                     .then((err, user) => {
                         const response = {
@@ -168,7 +167,7 @@ const controller = {
         } = req.body
 
         if (username && password) {
-            User.findOne({
+            user.findOne({
                 where: {
                     username: username
                 }
@@ -206,8 +205,8 @@ const controller = {
 
     //-------------------------------------------------------------------------------------------
     updateUser: async (req, res, next) => {
-        const userId = Number(req.params.id)
-        User.update({
+        const user_id = req.params
+        user.update({
             username: req.body.username,
             password: req.body.password,
             first_name: req.body.first_name,
@@ -225,7 +224,7 @@ const controller = {
             created_at: new Date()
         }, {
                 where: {
-                    user_id: userId
+                    user_id
                 }
             })
             .then(user => {
@@ -242,10 +241,10 @@ const controller = {
 
     //-------------------------------------------------------------------------------------------
     deleteUser: async (req, res, next) => {
-        const user_id = Number(req.params.id)
-        User.destroy({
+        const user_id = req.params
+        user.destroy({
             where: {
-                user_id: user_id
+                user_id
             }
         })
             .then(user => {

@@ -50,12 +50,12 @@ const controller = {
     },
 
     //-------------------------------------------------------------------------------------------
-    getBidById: (req, res, next) => {
-        const bidId = req.params.id
+    getById: (req, res, next) => {
+        const { bid_id }  = req.params
         bid
             .findAll({
                 where: {
-                    bid_id: bidId
+                    bid_id
                 }
             })
             .then(bidData => {
@@ -79,12 +79,12 @@ const controller = {
     },
 
     //-------------------------------------------------------------------------------------------
-    getBidByUserId: (req, res, next) => {
-        const userId = req.params.id
+    getByUserId: (req, res, next) => {
+        const { user_id }  = req.params
         bid
             .findAll({
                 where: {
-                    user_id: userId
+                    user_id
                 }
             })
             .then(bidData => {
@@ -108,12 +108,12 @@ const controller = {
     },
 
     //-------------------------------------------------------------------------------------------
-    getBidByAuctionId: (req, res, next) => {
-        const auctionId = req.params.id
+    getByAuctionId: (req, res, next) => {
+        const { auction_id } = req.params
         bid
             .findAll({
                 where: {
-                    auction_id: auctionId
+                    auction_id
                 }
             })
             .then(bidData => {
@@ -138,7 +138,7 @@ const controller = {
 
     //-------------------------------------------------------------------------------------------
     updateBid: (req, res, next) => {
-        const bidId = Number(req.params.id)
+        const { bid_id }  = req.params
         bid.update({
                 auction_id: req.body.auction_id,
                 user_id: req.body.user_id,
@@ -146,7 +146,7 @@ const controller = {
                 created_at: new Date()
             }, {
                 where: {
-                    bid_id: bidId
+                    bid_id
                 }
             })
             .then(bid => {
@@ -163,10 +163,10 @@ const controller = {
 
     //-------------------------------------------------------------------------------------------
     deleteBid: (req, res, next) => {
-        const bidId = Number(req.params.id)
+        const { bid_id }  = req.params
         bid.destroy({
                 where: {
-                    bid_id: bidId
+                    bid_id
                 }
             })
             .then(bid => {
