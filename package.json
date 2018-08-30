@@ -21,8 +21,10 @@
     "jsonwebtoken": "^8.3.0",
     "morgan": "~1.9.0",
     "mysql2": "^1.6.1",
+    "nvm": "^0.0.4",
     "sequelize": "^4.38.0",
     "sequelize-cli": "^4.1.1",
+    "supertest": "^3.1.0",
     "t": "^0.5.1"
   },
   "description": "backend of Lelangbuana Project",
