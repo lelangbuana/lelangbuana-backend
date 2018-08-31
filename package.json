@@ -3,7 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "node index"
+    "start": "node index",
+    "dev": "node-dev src",
+    "mon": "nodemon src",
+    "test": "jest test",
+    "test:watch": "jest test --watchAll"
   },
   "dependencies": {
     "bcrypt": "^3.0.0",
@@ -11,6 +15,11 @@
     "cors": "^2.8.4",
     "debug": "~2.6.9",
     "dotenv-extended": "^2.2.0",
+    "eslint": "^5.4.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.1",
     "express": "~4.16.0",
     "foreman": "^3.0.1",
     "global": "^4.3.2",
@@ -18,11 +27,15 @@
     "greenkeeper-lockfile": "^1.15.1",
     "http-errors": "~1.6.2",
     "jade": "~1.11.0",
+    "jest": "^23.5.0",
     "jsonwebtoken": "^8.3.0",
     "morgan": "~1.9.0",
     "mysql2": "^1.6.1",
+    "node-dev": "^3.1.3",
+    "nvm": "^0.0.4",
     "sequelize": "^4.38.0",
     "sequelize-cli": "^4.1.1",
+    "supertest": "^3.1.0",
     "t": "^0.5.1"
   },
   "description": "backend of Lelangbuana Project",
