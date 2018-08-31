@@ -24,6 +24,9 @@ module.exports = (sequelize, DataTypes) => {
     category.hasMany(models.category, {
       foreignKey: 'parent_category_id'
     })
+    category.hasMany(models.auction, {
+      foreignKey: 'category_id'
+    })
   };
   return category;
 };
