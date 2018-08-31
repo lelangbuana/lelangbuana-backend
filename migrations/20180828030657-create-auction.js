@@ -16,6 +16,14 @@ module.exports = {
           key: 'user_id'
         }
       },
+      category_id: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'categories',
+          key: 'category_id'
+        }
+      },
       title: {
         allowNull: false,
         type: Sequelize.STRING(64)
