@@ -7,7 +7,16 @@
     "dev": "node-dev src",
     "mon": "nodemon src",
     "test": "jest test",
-    "test:watch": "jest test --watchAll"
+    "test:watch": "jest test --watchAll",
+    "setup": "yarn && yarn migrate",
+    "setup:undo": "yarn migrate:undo",
+    "migrate": "sequelize db:migrate",
+    "migrate:undo": "sequelize db:migrate:undo",
+    "migrate:undo:all": "sequelize db:migrate:undo:all",
+    "migrate:production": "sequelize db:migrate --env production && sequelize db:seed:all --env production",
+    "migrate:production:undo": "sequelize db:seed:undo:all --env production && sequelize db:migrate:undo:all --env production",
+    "migrate:test": "sequelize db:migrate --env test",
+    "migrate:test:undo": "sequelize db:migrate:undo:all --env test"
   },
   "dependencies": {
     "bcrypt": "^3.0.0",
