@@ -14,7 +14,7 @@ const controller = {
                     })
                     console.log('Sorry, bid data is empty')
                 } else if (bids.length > 0) {
-                    res.send({
+                    res.status(200).send({
                         bids
                     })
                     console.log('Yeah! You have some bid data!')
@@ -37,7 +37,7 @@ const controller = {
                 created_at: new Date()
             })
             .then(newBid => {
-                res.send({
+                res.status(200).send({
                     newBid
                 })
                 console.log('You have sent a new bid data!')
@@ -65,7 +65,7 @@ const controller = {
                     })
                     console.log('Sorry, bid data is empty.')
                 } else if (bidData.length > 0) {
-                    res.send({
+                    res.status(200).send({
                         bidData
                     })
                     console.log('Yeah! You have some bid data!')
@@ -94,7 +94,7 @@ const controller = {
                     })
                     console.log('Sorry, bid data is empty.')
                 } else if (bidData.length > 0) {
-                    res.send({
+                    res.status(200).send({
                         bidData
                     })
                     console.log('Yeah! You have some bid data!')
@@ -123,7 +123,7 @@ const controller = {
                     })
                     console.log('Sorry, bid data is empty.')
                 } else if (bidData.length > 0) {
-                    res.send({
+                    res.status(200).send({
                         bidData
                     })
                     console.log('Yeah! You have some bid data!')
@@ -150,7 +150,7 @@ const controller = {
                 }
             })
             .then(bid => {
-                res.send({
+                res.status(200).send({
                     bid
                 })
             })
@@ -170,7 +170,7 @@ const controller = {
                 }
             })
             .then(bid => {
-                res.send({
+                res.status(200).send({
                     bid
                 });
             })
