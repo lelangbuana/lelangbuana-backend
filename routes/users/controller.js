@@ -12,7 +12,7 @@ const controller = {
     get: async (req, res, next) => {
         user.findAll()
             .then(users => {
-                res.send({
+                res.status(200).send({
                     users
                 })
             })
@@ -29,7 +29,7 @@ const controller = {
         user.findById(user_id)
             .then(user => {
                 if (user) {
-                    res.send({
+                    res.status(200).send({
                         user
                     })
                 } else {
@@ -56,7 +56,7 @@ const controller = {
         })
             .then(user => {
                 if (user) {
-                    res.send({
+                    res.status(200).send({
                         user
                     })
                 } else {
@@ -144,7 +144,7 @@ const controller = {
                             message: `User is successfully registered`,
                             username
                         }
-                        res.send(response)
+                        res.status(200).send(response)
                     })
                     .catch(error =>
                         res.status(409).send({
@@ -185,7 +185,7 @@ const controller = {
                             }
                         )
 
-                        res.send({
+                        res.status(200).send({
                             message: `User is successfully logged in`,
                             token
                         })
@@ -228,7 +228,7 @@ const controller = {
                 }
             })
             .then(user => {
-                res.send({
+                res.status(200).send({
                     user
                 })
             })
@@ -248,7 +248,7 @@ const controller = {
             }
         })
             .then(user => {
-                res.send({
+                res.status(200).send({
                     user
                 });
             })

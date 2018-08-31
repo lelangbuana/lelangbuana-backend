@@ -15,7 +15,7 @@ const controller = {
                     console.log('Sorry, auction data is empty.')
                 }
                 else if (auctions.length > 0){
-                    res.send(auctions)
+                    res.status(200).send(auctions)
                     console.log('Yeah! You have some auction data!')
                 }
             })
@@ -76,7 +76,7 @@ const controller = {
                     created_at: new Date()
                 })
                 .then(newAuction => {
-                    res.send(newAuction)
+                    res.status(200).send(newAuction)
                     console.log('You have sent a new auction data!')
                 })
                 .catch(error => {
@@ -104,7 +104,7 @@ const controller = {
                     console.log('Sorry, auction data is empty.')
                 }
                 else{
-                    res.send(auctionData)
+                    res.status(200).send(auctionData)
                     console.log('Yeah! You have some auction data!')
                 }
             })
@@ -132,7 +132,7 @@ const controller = {
                     console.log('Sorry, auction data is empty.')
                 }
                 else{
-                    res.send(auctionData)
+                    res.status(200).send(auctionData)
                     console.log('Yeah! You have some auction data!')
                 }
             })
@@ -160,7 +160,7 @@ const controller = {
                     console.log('Sorry, auction data is empty.')
                 }
                 else{
-                    res.send(auctionData)
+                    res.status(200).send(auctionData)
                     console.log('Yeah! You have some auction data!')
                 }
             })
@@ -195,7 +195,7 @@ const controller = {
                 }
             })
             .then(bid => {
-                res.send({
+                res.status(200).send({
                     bid
                 })
             })
@@ -215,7 +215,7 @@ const controller = {
                 }
             })
             .then(auction => {
-                res.send({
+                res.status(200).send({
                     auction
                 });
             })
