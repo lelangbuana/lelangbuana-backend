@@ -62,6 +62,9 @@ module.exports = (sequelize, DataTypes) => {
   });
   auction.associate = function(models) {
     // associations can be defined here
+    auction.belongsTo(models.category, {
+      foreignKey: 'category_id'
+    })
     auction.belongsTo(models.user, {
       foreignKey: 'user_id'
     })
