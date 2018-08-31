@@ -16,6 +16,7 @@ module.exports = {
     const demoAuctions = [
       {
         user_id: 1,
+        category_id: 13,
         title: 'iPhone 4',
         item_condition: 'Used - Very Good',
         item_description: 'This is my phone which has been used about 3 years. Hardware is still flawless. No bugs or crashes on software. Good condition for use.',
@@ -32,6 +33,7 @@ module.exports = {
       },
       {
         user_id: 2,
+        category_id: 12,
         title: 'Tupperware water bottle',
         item_condition: 'Used - Very Good',
         item_description: 'Color: Black. Capacity: 1L. Height: 30 cm. Weight: 200 gr.',
@@ -48,6 +50,7 @@ module.exports = {
       },
       {
         user_id: 3,
+        category_id: 14,
         title: 'Cosmos Iron',
         item_condition: 'Used - Very Good',
         item_description: 'Color: Orange. Electric Usage: 200 watt. Dimension: 25x10x5 cm. Weight: 600 gr.',
