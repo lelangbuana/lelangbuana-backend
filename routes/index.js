@@ -3,10 +3,12 @@ const router = express.Router();
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.send({
-    message: 'Welcome to REST API',
+  res.status(200).send({
+    title: 'Welcome to REST API',
     endpoints: {
-      users: '/users'
+      users: '/users',
+      auctions: '/auctions',
+      bids: '/bids'
     }
   });
 });
