@@ -30,6 +30,7 @@ const controller = {
     post: (req, res, next) => {
         const {
             user_id,
+            category_id,
             title,
             item_condition,
             item_description,
@@ -45,6 +46,7 @@ const controller = {
         } = req.body;
         if (
             user_id &&
+            category_id &&
             title &&
             item_condition &&
             item_description &&
@@ -61,6 +63,7 @@ const controller = {
             auction
                 .create({
                     user_id,
+                    category_id,
                     title,
                     item_condition,
                     item_description,
