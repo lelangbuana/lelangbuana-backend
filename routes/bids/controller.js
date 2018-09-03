@@ -37,9 +37,7 @@ const controller = {
                 created_at: new Date()
             })
             .then(newBid => {
-                res.status(200).send({
-                    newBid
-                })
+                res.status(200).send(newBid)
                 console.log('You have sent a new bid data!')
             })
             .catch(error => {
