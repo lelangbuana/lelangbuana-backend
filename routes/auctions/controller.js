@@ -1,5 +1,6 @@
 const models = require('../../models')
 const auction = models.auction
+const users = models.user
 
 const controller = {
     
@@ -125,7 +126,10 @@ const controller = {
             .findAll({
                 where:{
                     user_id
-                }
+                },
+                include:[{
+                    model: users
+                }]
             })
             .then(auctionData => {
                 if (auctionData.length == 0) {
