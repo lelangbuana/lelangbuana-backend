@@ -9,6 +9,10 @@ module.exports = (sequelize, DataTypes) => {
     bids_nominal: {
       allowNull: false,
       type: DataTypes.INTEGER
+    },
+    status: {
+      allowNull: false,
+      type: DataTypes.STRING(32)
     }
   }, 
   {
