@@ -7,7 +7,11 @@ const controller = {
     //-------------------------------------------------------------------------------------------
     get: (req, res, next) => {
         auction
-            .findAll()
+            .findAll({
+                include:[{
+                    model: users
+                }]
+            })
             .then(auctions => {
                 if (auctions.length == 0) {
                     res.status(400).send({
@@ -100,7 +104,10 @@ const controller = {
             .findOne({
                 where:{
                     auction_id
-                }
+                },
+                include:[{
+                    model: users
+                }]
             })
             .then(auctionData => {
                 if (!auctionData){
@@ -157,7 +164,10 @@ const controller = {
             .findAll({
                 where:{
                     status
-                }
+                },
+                include:[{
+                    model: users
+                }]
             })
             .then(auctionData => {
                 if (auctionData.length == 0) {
