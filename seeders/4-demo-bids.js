@@ -41,6 +41,7 @@ module.exports = {
         auction_id: 1,
         user_id: 2,
         bids_nominal: 1750000,
+        status: "Win",
         created_at: new Date('August 28, 2018 18:40:00')
       },
       {
@@ -71,6 +72,7 @@ module.exports = {
         auction_id: 2,
         user_id: 1,
         bids_nominal: 140000,
+        status: "Win",
         created_at: new Date('August 28, 2018 15:40:00')
       },
       {
@@ -101,6 +103,7 @@ module.exports = {
         auction_id: 3,
         user_id: 4,
         bids_nominal: 280000,
+        status: "Win",
         created_at: new Date('August 10, 2018 20:20:00')
       },
     ];

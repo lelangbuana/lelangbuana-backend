@@ -1,5 +1,7 @@
 const models = require('../../models')
 const bid = models.bid
+const auctions = models.auction
+const users = models.user
 
 const controller = {
     
@@ -112,7 +114,13 @@ const controller = {
             .findAll({
                 where: {
                     auction_id
-                }
+                },
+                include: [{
+                    model: auctions,
+                },
+                {
+                    model:users
+                }]
             })
             .then(bidData => {
                 if (bidData.length == 0) {
@@ -121,9 +129,7 @@ const controller = {
                     })
                     console.log('Sorry, bid data is empty.')
                 } else if (bidData.length > 0) {
-                    res.status(200).send({
-                        bidData
-                    })
+                    res.status(200).send(bidData)
                     console.log('Yeah! You have some bid data!')
                 }
             })
