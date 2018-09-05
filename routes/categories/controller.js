@@ -23,6 +23,28 @@ const controller = {
             })
     },
 
+    getByParentId : (req, res, next) => {
+        const { parent_category_id } = req.params
+        category
+            .findAll({
+                where:{
+                    parent_category_id
+                }
+            })
+            .then(categories => {
+                if (categories.length == 0){
+                    res.status(400).send({
+                        message: "Category data is empty"
+                    })
+                }
+                else if (categories.length > 0){
+                    res.status(200).send(categories)
+                }
+            })
+            .catch(error => {
+                res.status(400).send(error)
+            })
+    },
     
 }
 
