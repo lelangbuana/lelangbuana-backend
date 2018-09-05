@@ -4,7 +4,7 @@ const auctions = models.auction
 const users = models.user
 
 const controller = {
-    
+
     //-------------------------------------------------------------------------------------------
     get: (req, res, next) => {
         bid
@@ -36,6 +36,7 @@ const controller = {
                 auction_id: req.body.auction_id,
                 user_id: req.body.user_id,
                 bids_nominal: req.body.bids_nominal,
+                status: req.body.status,
                 created_at: new Date()
             })
             .then(newBid => {
@@ -51,7 +52,9 @@ const controller = {
 
     //-------------------------------------------------------------------------------------------
     getById: (req, res, next) => {
-        const { bid_id }  = req.params
+        const {
+            bid_id
+        } = req.params
         bid
             .findAll({
                 where: {
@@ -80,7 +83,9 @@ const controller = {
 
     //-------------------------------------------------------------------------------------------
     getByUserId: (req, res, next) => {
-        const { user_id }  = req.params
+        const {
+            user_id
+        } = req.params
         bid
             .findAll({
                 where: {
@@ -109,18 +114,21 @@ const controller = {
 
     //-------------------------------------------------------------------------------------------
     getByAuctionId: (req, res, next) => {
-        const { auction_id } = req.params
+        const {
+            auction_id
+        } = req.params
         bid
             .findAll({
                 where: {
                     auction_id
                 },
                 include: [{
-                    model: auctions,
-                },
-                {
-                    model:users
-                }]
+                        model: auctions,
+                    },
+                    {
+                        model: users
+                    }
+                ]
             })
             .then(bidData => {
                 if (bidData.length == 0) {
@@ -142,11 +150,14 @@ const controller = {
 
     //-------------------------------------------------------------------------------------------
     updateBid: (req, res, next) => {
-        const { bid_id }  = req.params
+        const {
+            bid_id
+        } = req.params
         bid.update({
                 auction_id: req.body.auction_id,
                 user_id: req.body.user_id,
                 bids_nominal: req.body.bids_nominal,
+                status: req.body.status,
                 created_at: new Date()
             }, {
                 where: {
@@ -167,7 +178,9 @@ const controller = {
 
     //-------------------------------------------------------------------------------------------
     deleteBid: (req, res, next) => {
-        const { bid_id }  = req.params
+        const {
+            bid_id
+        } = req.params
         bid.destroy({
                 where: {
                     bid_id
