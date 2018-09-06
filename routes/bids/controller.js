@@ -111,9 +111,7 @@ const controller = {
                     })
                     console.log('Sorry, bid data is empty.')
                 } else if (bidData.length > 0) {
-                    res.status(200).send({
-                        bidData
-                    })
+                    res.status(200).send(bidData)
                     console.log('Yeah! You have some bid data!')
                 }
             })
