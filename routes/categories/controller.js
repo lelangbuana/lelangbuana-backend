@@ -1,11 +1,16 @@
 const models = require('../../models')
 const category = models.category
+const auctions = models.auction
 
 const controller = {
 
     get: (req, res, next) => {
         category
-            .findAll()
+            .findAll({
+                include: [{
+                    model: auctions
+                }]
+            })
             .then(categories => {
                 if (categories.length == 0) {
                     res.status(400).send({
@@ -29,7 +34,10 @@ const controller = {
             .findAll({
                 where:{
                     parent_category_id
-                }
+                },
+                include: [{
+                    model: auctions
+                }]
             })
             .then(categories => {
                 if (categories.length == 0){
