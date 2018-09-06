@@ -1,6 +1,7 @@
 const models = require('../../models')
 const auction = models.auction
 const users = models.user
+const bids = models.bid
 
 const controller = {
     
@@ -10,6 +11,8 @@ const controller = {
             .findAll({
                 include:[{
                     model: users
+                },{
+                    model: bids
                 }]
             })
             .then(auctions => {
@@ -107,6 +110,8 @@ const controller = {
                 },
                 include:[{
                     model: users
+                },{
+                    model: bids
                 }]
             })
             .then(auctionData => {
@@ -136,6 +141,8 @@ const controller = {
                 },
                 include:[{
                     model: users
+                },{
+                    model: bids
                 }]
             })
             .then(auctionData => {
@@ -167,6 +174,8 @@ const controller = {
                 },
                 include:[{
                     model: users
+                }, {
+                    model: bids
                 }]
             })
             .then(auctionData => {
