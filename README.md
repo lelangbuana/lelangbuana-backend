@@ -23,15 +23,16 @@ Back End repository for Lelangbuana project
 
 2. Endpoints of 'auctions' table
 
-| Endpoint                    | HTTP   | Description                 |
-| ----------------------------| ------ | ----------------------------|
-| `/auctions`                 | GET    | Get all of auction data     |
-| `/auctions/:id`             | GET    | Get auction data by id      |
-| `/auctions/user_id/:id`     | GET    | Get auction data by user id |
-| `/auctions/status/:status`  | GET    | Get auction data by status  |
-| `/auctions/`                | POST   | Insert new auction data     |
-| `/auctions/:id`             | PUT    | Update one auction data     |
-| `/auctions/:id`             | DELETE | Delete one auction data     |
+| Endpoint                    | HTTP   | Description                    |
+| ----------------------------| ------ | -------------------------------|
+| `/auctions`                 | GET    | Get all of auction data        |
+| `/auctions/:id`             | GET    | Get auction data by id         |
+| `/auctions/search?q=`       | GET    | Search auction data by keyword |
+| `/auctions/user_id/:id`     | GET    | Get auction data by user id    |
+| `/auctions/status/:status`  | GET    | Get auction data by status     |
+| `/auctions/`                | POST   | Insert new auction data        |
+| `/auctions/:id`             | PUT    | Update one auction data        |
+| `/auctions/:id`             | DELETE | Delete one auction data        |
 
 3. Endpoints of 'bids' table
 
