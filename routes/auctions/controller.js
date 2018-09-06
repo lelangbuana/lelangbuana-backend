@@ -1,4 +1,7 @@
 const models = require('../../models')
+const Sequelize = require('sequelize')
+const Op = Sequelize.Op
+
 const auction = models.auction
 const users = models.user
 const bids = models.bid
@@ -195,6 +198,40 @@ const controller = {
                     error
                 })
             })
+    },
+
+    //-------------------------------------------------------------------------------------------
+    searchByKeyword: (req, res, next) => {
+        const keyword = String(req.query.q).toLowerCase()
+        
+        if (keyword){
+            auction
+                .findAll({
+                    where: {
+                        title : {
+                            [Op.like]: `%${keyword}%`
+                        }
+                    }
+                })
+                .then(auctions => {
+                    if (auctions.length == 0){
+                        res.status(400).send({
+                            message: "Corresponding data is empty"
+                        })
+                    }
+                    else if (auctions.length > 0){
+                        res.status(200).send(auctions)
+                    }
+                })
+                .catch(error => {
+                    res.status(400).send(error)
+                })
+        }
+        else{
+            res.status(400).send({
+                message: "You have to insert the keywords"
+            })
+        }
     },
 
     //-------------------------------------------------------------------------------------------

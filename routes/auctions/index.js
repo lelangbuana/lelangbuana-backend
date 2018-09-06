@@ -5,6 +5,7 @@ const controller = require('./controller.js')
 
 /* ROUTES/VIEW */
 router.get('/', controller.get) // GET All Auction Data
+router.get('/search', controller.searchByKeyword)
 router.get('/:auction_id', controller.getById) // GET Auction Data By ID 
 router.get('/user_id/:user_id', controller.getByUserId) // GET Auction Data By User ID
 router.get('/status/:status', controller.getByStatus) // GET Auction Data By Status
