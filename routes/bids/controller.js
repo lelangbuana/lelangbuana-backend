@@ -8,7 +8,13 @@ const controller = {
     //-------------------------------------------------------------------------------------------
     get: (req, res, next) => {
         bid
-            .findAll()
+            .findAll({
+                include:[{
+                    model: auctions
+                },{
+                    model: users
+                }]
+            })
             .then(bids => {
                 if (bids.length == 0) {
                     res.status(400).send({
@@ -16,9 +22,7 @@ const controller = {
                     })
                     console.log('Sorry, bid data is empty')
                 } else if (bids.length > 0) {
-                    res.status(200).send({
-                        bids
-                    })
+                    res.status(200).send(bids)
                     console.log('Yeah! You have some bid data!')
                 }
             })
@@ -59,7 +63,12 @@ const controller = {
             .findAll({
                 where: {
                     bid_id
-                }
+                },
+                include: [{
+                    model: auctions
+                }, {
+                    model: users
+                }]
             })
             .then(bidData => {
                 if (bidData.length == 0) {
@@ -68,9 +77,7 @@ const controller = {
                     })
                     console.log('Sorry, bid data is empty.')
                 } else if (bidData.length > 0) {
-                    res.status(200).send({
-                        bidData
-                    })
+                    res.status(200).send(bidData)
                     console.log('Yeah! You have some bid data!')
                 }
             })
@@ -90,7 +97,12 @@ const controller = {
             .findAll({
                 where: {
                     user_id
-                }
+                },
+                include: [{
+                    model: auctions
+                }, {
+                    model: users
+                }]
             })
             .then(bidData => {
                 if (bidData.length == 0) {
@@ -123,7 +135,7 @@ const controller = {
                     auction_id
                 },
                 include: [{
-                        model: auctions,
+                        model: auctions
                     },
                     {
                         model: users
